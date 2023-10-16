@@ -10,12 +10,12 @@
     border-radius: 1em;
     border: 0.3em double black ;
 
-    .card__top-left{
-        @include flex(column, start, start);
-
-        .top-left__form {
-            text-align: center;
+    .card__top{
+        top__left {
+            @include flex(column, start, start);
+            background-color: antiquewhite;
         }
+    
     }
 
     .center__form {
@@ -23,9 +23,11 @@
         font-size: 4em;
     }
 
-    .card__bottom-right{
-        @include flex(column, start, end);
+    .card__bottom{
 
+        .bottom__right{
+            @include flex(column, start, end);
+        }
 
         .bottom-right__number{
             rotate: 180deg;
