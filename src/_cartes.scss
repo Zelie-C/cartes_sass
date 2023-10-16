@@ -1,3 +1,5 @@
+@import "mixins";
+
 .central-zone__card {
     position: relative;
     top: 50px;
@@ -7,4 +9,26 @@
     background-color: white;
     border-radius: 1em;
     border: 0.3em double black ;
+
+    .card__top-left{
+        @include flex(column, start, start);
+
+        .top-left__form {
+            text-align: center;
+        }
+    }
+
+    .center__form {
+        text-align: center;
+        font-size: 4em;
+    }
+
+    .card__bottom-right{
+        @include flex(column, start, end);
+
+
+        .bottom-right__number{
+            rotate: 180deg;
+        }
+    }
 }
