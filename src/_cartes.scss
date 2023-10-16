@@ -3,13 +3,28 @@
 $height: 125px;
 $width: 80px;
 $random-number: math.random() * 360deg;
+$card-rotation: 0deg;
 
-@for $i from 2 through 5 {
+// @for $i from 2 through 6 {
+//     #card-#{$i} {
+//       margin-top: 40px * $i;
+//     }
+//   }
+
+@for $i from 1 through 3 {
     #card-#{$i} {
-      position: absolute;
-      margin-top: 40px * $i;
+        rotate: $card-rotation - 25deg * $i;
+        
+        
     }
-  }
+}
+
+@for $i from 4 through 6 {
+    #card-#{$i} {
+        rotate: $card-rotation + 25deg * $i;
+        
+    }
+}
 
 .central-zone__card {
     position: absolute;
