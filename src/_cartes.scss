@@ -4,22 +4,24 @@ $height: 125px;
 $width: 80px;
 $random-number: math.random() * 360deg;
 
+@for $i from 2 through 5 {
+    #card-#{$i} {
+      position: absolute;
+      margin-top: 40px * $i;
+    }
+  }
+
 .central-zone__card {
-    position: relative;
-    top: 50px;
-    left: 50px;
-    rotate: $random-number;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 50px;
+    //rotate: $random-number;
     height: $height;
     width: $width;
     background-color: white;
     border-radius: 1em;
     border: 0.3em double black ;
 
-    .card__card-container{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start; 
-    }
     .card__top{
         @include flex(column, start, start);
 
@@ -51,3 +53,5 @@ $random-number: math.random() * 360deg;
         }
     }
 }
+
+
