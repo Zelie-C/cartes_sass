@@ -1,36 +1,53 @@
+@use 'sass:math';
 @import "mixins";
+$height: 125px;
+$width: 80px;
+$random-number: math.random() * 360deg;
 
 .central-zone__card {
     position: relative;
     top: 50px;
     left: 50px;
-    height: 150px;
-    width: 100px;
+    rotate: $random-number;
+    height: $height;
+    width: $width;
     background-color: white;
     border-radius: 1em;
     border: 0.3em double black ;
 
+    .card__card-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; 
+    }
     .card__top{
-        top__left {
-            @include flex(column, start, start);
-            background-color: antiquewhite;
+        @include flex(column, start, start);
+
+        
+        .top__left {
+            margin-left: 0.2em;
+            text-align: center;
         }
-    
     }
 
     .center__form {
         text-align: center;
-        font-size: 4em;
+        font-size: 2.5em;
+
     }
 
     .card__bottom{
+        @include flex(column, start, end);
 
         .bottom__right{
-            @include flex(column, start, end);
-        }
-
-        .bottom-right__number{
-            rotate: 180deg;
+            text-align: center;
+            margin-right: 0.2em;
+            .right__form {
+                rotate: 180deg;
+            }
+            .right__number{
+                rotate: 180deg;
+            }
         }
     }
 }
