@@ -1,3 +1,4 @@
+
 @mixin flex($direction, $justify, $align) {
     display: flex;
     flex-direction: $direction;
@@ -5,3 +6,76 @@
     align-items: $align;
 }
 
+@mixin card-creator(){
+    height: $height;
+    width: $width;
+    background-color: white;
+    border-radius: 1em;
+    border: 0.3em double black ; 
+}
+
+@mixin card-creator-face(){
+    height: $height;
+    width: $width;
+    background-color: white;
+    border-radius: 1em;
+    border: 0.3em double black ;
+
+    .card__top{
+        @include flex(column, start, start);
+
+        
+        .top__left {
+            margin-left: 0.2em;
+            text-align: center;
+        }
+    }
+
+    .center__form {
+        text-align: center;
+        font-size: 2.5em;
+
+    }
+
+    .card__bottom{
+        @include flex(column, start, end);
+
+        .bottom__right{
+            text-align: center;
+            margin-right: 0.2em;
+            .right__form {
+                rotate: 180deg;
+            }
+            .right__number{
+                rotate: 180deg;
+            }
+        }
+    }
+}
+
+@mixin fan-rotate-cards($num-cards: 6, $angle: 10deg, $distance: 30px, $initial-margin-left: 50px) {
+    @for $i from 1 through $num-cards {
+        #card-#{$i} {
+            rotate: $card-rotation + $angle * $i;
+            margin-left: $initial-margin-left + $i * $distance;
+        }
+    }
+}
+
+@mixin vertical-pile(){
+    @for $i from 2 through 6 {
+        #card-#{$i} {
+          margin-top: 40px * $i;
+        }
+    }
+}
+
+@mixin random-card-position() {
+    @for $i from 7 through 9 {
+        #card-#{$i} {
+            margin-top: math.random() * 20px;
+            margin-left: math.random() * 300px;
+            rotate: math.random() * 360deg;
+        }
+    }
+}
